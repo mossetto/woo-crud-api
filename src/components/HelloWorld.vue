@@ -237,10 +237,41 @@
         this.editedIndex = this.productos.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
+
+
       },
 
       deleteItemConfirm () {
+
         this.productos.splice(this.editedIndex, 1)
+
+        if(this.productos.splice(this.editedIndex, 1)){
+          
+          this.editedIndex, 1
+
+          const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
+          const api = new WooCommerceRestApi({
+            url: "https://nuevo-eshopping.com/",
+            consumerKey: "ck_39216abb4abf27b0177ae5ec431ed900c10f637b",
+            consumerSecret: "cs_094b361782eb9d1a6189b8d01007df375a95e1ef",
+            version: "wc/v3"
+          });
+
+          // Delete a product
+            api.delete("products/"+this.editedIndex, {
+              force: false, // Forces to delete instead of move to the Trash
+            })
+              .then((response) => {
+                console.log("Response Data:", response.data);
+              })
+              .catch((error) => {
+                console.log("Response Data:", error.response.data);
+              })
+
+        }
+
+
+
         this.closeDelete()
       },
 
