@@ -42,7 +42,7 @@
                   <v-col
                     cols="12"
                     sm="6"
-                    md="4"
+                    md="8"
                   >
                     <v-text-field
                       v-model="editedItem.name"
@@ -55,18 +55,18 @@
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.short_description"
-                      label="Descripción corta"
+                      v-model="editedItem.regular_price"
+                      label="Precio"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
                     sm="6"
-                    md="4"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.regular_price"
-                      label="Precio"
+                      v-model="editedItem.short_description"
+                      label="Descripción corta"
                     ></v-text-field>
                   </v-col>
                   <!-- <v-col
@@ -82,12 +82,13 @@
                   <v-col
                     cols="12"
                     sm="6"
-                    md="4"
+                    md="12"
                   >
-                    <v-text-field
+                    <!-- <v-text-field
                       v-model="editedItem.id"
                       label="ID"
-                    ></v-text-field>
+                    ></v-text-field> -->
+                    <p>ID del producto<br>{{editedItem.id}}</p>
                   </v-col>
                 </v-row>
               </v-container>
